@@ -1,0 +1,23 @@
+.add__goal__button{
+    cursor: pointer;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.add__goal__button__text{
+    font-family: 'Roboto';
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 20px;
+    color: #94a7c7;
+    margin: 0;
+}
+
+.add__goal__button__unable{
+    filter: sepia(70%);
+    pointer-events: none;
+}
