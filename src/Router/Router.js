@@ -14,7 +14,7 @@ const Blog = props => (
     </div>
 )
 
-const PageNotFound = () => <div>Page Not Found. Error 404</div> 
+const PageNotFound = () => <div>Page Not Found</div> 
 
 class KanbanRouter extends React.Component {
 render(){
