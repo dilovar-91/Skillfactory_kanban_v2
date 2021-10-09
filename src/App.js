@@ -79,10 +79,11 @@ class App extends React.Component{
 
   goalsToOthers = (id) => {
     const {dataMock} = this.state;
-    const goalsOfTheseColumn = dataMock[`${id.slice(4)-2}`].issues;
-    const thisList = document.querySelector(`#list-${id.slice(4)}`);
-    const thisColumn = document.querySelector(`#column-${id.slice(4)}`);
-    const addButton = document.querySelector(`#button-${id.slice(4)}`);
+    console.log(id)
+    const goalsOfTheseColumn = dataMock[parseInt(id.slice(-1))-2].issues;
+    const thisList = document.querySelector(`#list-${parseInt(id.slice(-1))}`);
+    const thisColumn = document.querySelector(`#column-${id.slice(-1)}`);
+    const addButton = document.querySelector(`#button-${id.slice(-1)}`);
     const dropdown = document.createElement('select');
     const submitButton = document.createElement('button'); 
 
@@ -93,18 +94,18 @@ class App extends React.Component{
     submitButton.innerText = 'Подтвердить';
     thisColumn.appendChild(submitButton);
     goalsOfTheseColumn.forEach((item) =>{
-      const itemName = document.createElement('itemName');
+      const itemName = document.createElement('option');
       itemName.appendChild(document.createTextNode(`${item.name}`));
       dropdown.appendChild(itemName);
     })
 
     submitButton.addEventListener('click', () => {
       const selectedItem = dropdown.options[dropdown.selectedIndex].innerHTML;
-      dataMock[`${id.slice(4) - 1}`].issues.push({id:'dvscfds', name: selectedItem});
+      dataMock[`${id.slice(-1) - 1}`].issues.push({id:'dvscfds', name: selectedItem});
 
-      for (let i = 0; i < dataMock[`${id.slice(4) - 2}`].issues.length; i++) {
-        if (dataMock[`${id.slice(4) - 2}`].issues[i].name === selectedItem) {
-          dataMock[`${id.slice(4) - 2}`].issues.splice(i, 1);
+      for (let i = 0; i < dataMock[`${id.slice(-1) - 2}`].issues.length; i++) {
+        if (dataMock[`${id.slice(-1) - 2}`].issues[i].name === selectedItem) {
+          dataMock[`${id.slice(-1) - 2}`].issues.splice(i, 1);
           break;
         }
       }
